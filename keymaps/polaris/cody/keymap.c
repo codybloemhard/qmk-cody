@@ -17,19 +17,42 @@
 
 enum custom_keycodes{
     HMDIR,
+    LROTATE,
 };
+
+char bfl = 0; // base layer, used to rotate bewteen bottom layer
+char nbls = 2;
+
+#define L_BASE_CODY 0
+#define L_BASE_STDISH 1
+#define L_FN 2
+#define L_MOUSE 3
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record){
     switch(keycode){
         case HMDIR:
             if(record->event.pressed) SEND_STRING("~/");
             break;
+        case LROTATE:
+            if(record->event.pressed){
+                bfl = (bfl + 1) % nbls;
+                if(bfl == L_BASE_CODY){
+                    layer_on(L_BASE_CODY);
+                    layer_off(L_BASE_STDISH);
+                    SEND_STRING("#baselayer activated: cody-qwerty\n");
+                }else if(bfl == L_BASE_STDISH){
+                    layer_on(L_BASE_STDISH);
+                    layer_off(L_BASE_CODY);
+                    SEND_STRING("#baselayer activated: standardish-qwerty\n");
+                }
+            }
     }
     return true;
 }
 
 enum layer_names {
     _BASE,
+    _STANDARDISH,
     _FN,
     _MOUSE,
 };
@@ -37,10 +60,17 @@ enum layer_names {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_all( /* Base */
     KC_EQL,                     KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_GRAVE,KC_BSLS, KC_F14,
-    KC_BSPC,                    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          HMDIR,
+    KC_ENT,                     KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          HMDIR,
     MT(MOD_LGUI, KC_TAB),       KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,                   KC_ESC,
-    MT(MOD_LCTL, KC_BSPC),      _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_CAPS, XXXXXXX,
-    MO(2),                      KC_LGUI, KC_LALT,          KC_LSFT,          LT(1, KC_ENT),    KC_SPC,                    KC_RALT, KC_ENT,  KC_APP,  KC_RCTL
+    MT(MOD_LCTL, KC_BSPC),      _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_CAPS, LROTATE,
+    MO(L_MOUSE),                KC_LGUI, KC_LALT,          KC_LSFT,          LT(L_FN, KC_ESC), KC_SPC,                    KC_RALT, KC_ENT,  KC_APP,  KC_RCTL
+  ),
+  [_STANDARDISH] = LAYOUT_all( /* Standardish */
+    KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
+    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          KC_BSPC,
+    KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,                   KC_ENT,
+    KC_LSFT, KC_BSLS, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_RSFT, LROTATE,
+    KC_LCTL, KC_LGUI, KC_LALT,          KC_SPC,           MO(L_FN),         KC_SPC,                    KC_RALT, KC_RGUI, KC_APP,  KC_RCTL
   ),
   [_FN] = LAYOUT_all( /* FN */
     RESET,                      KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, _______,
