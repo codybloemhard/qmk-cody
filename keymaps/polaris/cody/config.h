@@ -26,6 +26,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define PRODUCT         Codys Polaris
 #define DESCRIPTION     Basic 60% keyboard
 
+#define MOUSEKEY_DELAY 0
+#define MK_3_SPEED
+#define MK_C_OFFSET_UNMOD 1
+#define MK_C_INTERVAL_UNMOD 16
+#define MK_C_OFFSET_0 4
+#define MK_C_INTERVAL_0 16
+#define MK_C_OFFSET_1 8
+#define MK_C_INTERVAL_1 16
+#define MK_C_OFFSET_2 16
+#define MK_C_INTERVAL_2 16
+
 /* key matrix size */
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 14
