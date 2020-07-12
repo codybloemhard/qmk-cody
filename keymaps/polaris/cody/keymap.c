@@ -24,7 +24,7 @@ char bfl = 0; // base layer, used to rotate bewteen bottom layer
 char nbls = 3;
 
 #define L_BASE_CODY 0
-#define L_BASE_QWERTY 1
+#define L_BASE_GAMING 1
 #define L_BASE_STDISH 2
 #define L_FN 3
 #define L_MOUSE 4
@@ -39,18 +39,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record){
                 bfl = (bfl + 1) % nbls;
                 if(bfl == L_BASE_CODY){
                     layer_on(bfl);
-                    layer_off(L_BASE_QWERTY);
+                    layer_off(L_BASE_GAMING);
                     layer_off(L_BASE_STDISH);
                     SEND_STRING("#baselayer activated: cody-qgmlwy\n");
-                }else if(bfl == L_BASE_QWERTY){
+                }else if(bfl == L_BASE_GAMING){
                     layer_on(bfl);
                     layer_off(L_BASE_CODY);
                     layer_off(L_BASE_STDISH);
-                    SEND_STRING("#baselayer activated: cody-qwerty\n");
+                    SEND_STRING("#baselayer activated: gaming-qgmlwy\n");
                 }else if(bfl == L_BASE_STDISH){
                     layer_on(bfl);
                     layer_off(L_BASE_CODY);
-                    layer_off(L_BASE_QWERTY);
+                    layer_off(L_BASE_GAMING);
                     SEND_STRING("#baselayer activated: standardish-qwerty\n");
                 }
             }
@@ -61,7 +61,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record){
 
 enum layer_names {
     _BASE,
-    _QWERTY,
+    _GAMING,
     _STANDARDISH,
     _FN,
     _MOUSE,
@@ -75,12 +75,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MT(MOD_LCTL, KC_ESC),       _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_J,    KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_SLSH,          KC_CAPS, LROTATE,
     KC_LALT,                    KC_LGUI, KC_LALT,          KC_LSFT,          LT(L_FN, KC_ENT), KC_SPC,                    KC_RALT, KC_ENT,  KC_APP,  KC_RCTL
   ),
-  [_QWERTY] = LAYOUT_all( /* QWERTY with base mods */
-    KC_BSLS,                    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_GRAVE,HMDIR,   KC_F13,
-    LT(L_MOUSE, KC_TAB),        KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC,          KC_EQL,
-    MT(MOD_LGUI, KC_BSPC),      KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,                   KC_BSPC,
-    MT(MOD_LCTL, KC_ESC),       _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,          KC_CAPS, LROTATE,
-    KC_LALT,                    KC_LGUI, KC_LALT,          KC_LSFT,          LT(L_FN, KC_ENT), KC_SPC,                    KC_RALT, KC_ENT,  KC_APP,  KC_RCTL
+  [_GAMING] = LAYOUT_all( /* QGMLWY with base mods on the left */
+    KC_ESC,                     KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_GRAVE,HMDIR,   KC_F13,
+    KC_TAB,                     KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_Y,    KC_F,    KC_U,    KC_B,    KC_SCLN, KC_LBRC, KC_RBRC,          KC_EQL,
+    KC_LGUI,                    KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_QUOT,                   KC_BSPC,
+    KC_LSFT,                    _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_J,    KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_SLSH,          KC_CAPS, LROTATE,
+    KC_LCTL,                    KC_LGUI, KC_LALT,          KC_SPC,           LT(L_FN, KC_ENT), KC_SPC,                    KC_RALT, KC_ENT,  KC_APP,  KC_RCTL
   ),
   [_STANDARDISH] = LAYOUT_all( /* Standardish */
     KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
