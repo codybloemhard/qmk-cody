@@ -21,7 +21,7 @@ On polaris this can be done by holding the top-left key or the reset button whil
 The board will not work in booloader mode.
 Flash the board with the right flash parameter, this changes per board, for polaris it is `dfu`.
 When flashing, make sure to be a root user or use sudo as it will not find your board otherwise.
-For example: `sudo make a03/polaris:default:dfu`.
+For example: `sudo make ai03/polaris:default:dfu`.
 Replug your board and observe the changes.
 ## Make a new keymap
 To make a new keymap, go to the `keyboards` directory and find your board.

@@ -37,6 +37,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MK_C_OFFSET_2 16
 #define MK_C_INTERVAL_2 16
 
+#define TAPPING_TERM 50
+#define RETRO_TAPPING
+
 /* key matrix size */
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 14
