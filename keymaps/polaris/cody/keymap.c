@@ -29,20 +29,16 @@ char nbls = 3;
 #define L_FN 3
 #define L_MOUSE 4
 
-uint16_t get_tapping_term(uint16_t keycode) {
-  switch (keycode) {
-    case LT(L_FN, KC_ENT):
-      return 50;
-    default:
-      return TAPPING_TERM;
-  }
-}
-
-bool get_retro_tapping(uint16_t keycode, keyrecord_t *record) {
+// Uses: https://github.com/qmk/qmk_firmware/pull/9404
+// So not compatibel with master (yet)
+// Build from a modified branch
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LT(L_FN, KC_ENT):
+            // Immediately select the hold action when another key is pressed.
             return true;
         default:
+            // Do not select the hold action when another key is pressed.
             return false;
     }
 }

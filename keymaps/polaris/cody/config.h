@@ -38,9 +38,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MK_C_INTERVAL_2 16
 
 #define TAPPING_TERM 200
-#define TAPPING_TERM_PER_KEY
-#define RETRO_TAPPING
-#define RETRO_TAPPING_PER_KEY
+// Uses: https://github.com/qmk/qmk_firmware/pull/9404
+// So not compatibel with master (yet)
+// Build from a modified branch
+#define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
 /* key matrix size */
 #define MATRIX_ROWS 5
