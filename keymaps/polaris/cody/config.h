@@ -43,6 +43,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Build from a modified branch
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
+#define UNICODE_SELECTED_MODES UC_LNX
+
 /* key matrix size */
 #define MATRIX_ROWS 5
 #define MATRIX_COLS 14

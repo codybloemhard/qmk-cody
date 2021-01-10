@@ -31,5 +31,7 @@ BLUETOOTH_ENABLE = no       # Enable Bluetooth with the Adafruit EZ-Key HID
 AUDIO_ENABLE = no           # Audio output on port C6
 FAUXCLICKY_ENABLE = no      # Use buzzer to emulate clicky switches
 HD44780_ENABLE = no         # Enable support for HD44780 based LCDs
+#UNICODE_ENABLE = yes
+UNICODEMAP_ENABLE = yes
 
 LAYOUTS = 60_ansi 60_ansi_split_bs_rshift 60_tsangan_hhkb
