@@ -109,16 +109,16 @@ enum layer_names {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_BASE] = LAYOUT_all( /* QGMLWY base layer */
-    KC_BSLS,                    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL ,KC_GRAVE, KC_F13,
+    KC_BSLS,                    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_GRAVE,KC_F13,
     LT(L_MOUSE, KC_TAB),        KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_Y,    KC_F,    KC_U,    KC_B,    KC_SCLN, KC_LBRC, KC_RBRC,          KC_BSPC,
     KC_LGUI,                    KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_QUOT,                   HMDIR,
     MT(MOD_LCTL, KC_ESC),       _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_J,    KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_SLSH,          KC_CAPS, LROTATE,
     MO(L_EXTRA),                KC_LGUI, KC_LALT,          KC_LSFT,          LT(L_FN, KC_ENT), KC_SPC,                    KC_RALT, KC_ENT,  KC_APP,  KC_RCTL
   ),
   [_GAMING] = LAYOUT_all( /* QGMLWY with base mods on the left */
-    KC_ESC,                     KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_GRAVE,HMDIR,   KC_F13,
-    KC_TAB,                     KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_Y,    KC_F,    KC_U,    KC_B,    KC_SCLN, KC_LBRC, KC_RBRC,          KC_EQL,
-    KC_LGUI,                    KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_QUOT,                   KC_BSPC,
+    KC_ESC,                     KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL, KC_GRAVE, KC_F13,
+    KC_TAB,                     KC_Q,    KC_G,    KC_M,    KC_L,    KC_W,    KC_Y,    KC_F,    KC_U,    KC_B,    KC_SCLN, KC_LBRC, KC_RBRC,          KC_BSPC,
+    KC_LGUI,                    KC_D,    KC_S,    KC_T,    KC_N,    KC_R,    KC_I,    KC_A,    KC_E,    KC_O,    KC_H,    KC_QUOT,                   HMDIR,
     KC_LSFT,                    _______, KC_Z,    KC_X,    KC_C,    KC_V,    KC_J,    KC_K,    KC_P,    KC_COMM, KC_DOT,  KC_SLSH,          KC_CAPS, LROTATE,
     KC_LCTL,                    KC_LGUI, KC_LALT,          KC_SPC,           LT(L_FN, KC_ENT), KC_SPC,                    KC_RALT, KC_ENT,  KC_APP,  KC_RCTL
   ),
