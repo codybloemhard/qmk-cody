@@ -24,7 +24,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    ai03 Design Studio
 #define PRODUCT         Codys Polaris
-#define DESCRIPTION     Basic 60% keyboard
 
 #define MOUSEKEY_DELAY 0
 #define MK_3_SPEED
