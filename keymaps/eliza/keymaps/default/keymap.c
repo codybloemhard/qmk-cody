@@ -89,14 +89,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_LALT, KC_LSFT, K_LFN, K_RFN, KC_SPC, MO(L_BLS)
     ),
     [L_UP] = KEYMAP(
-        KC_LCBR, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR,  KC_GRV,  KC_TILD, KC_RCBR,
-        KC_LPRN, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,     KC_9,    KC_0,    KC_RPRN,
-        KC_LBRC, KC_LBRC, KC_LCBR, KC_LPRN, KC_BSLS, KC_PIPE, _______, KC_RPRN,  KC_RCBR, KC_RBRC, _______, KC_RBRC,
+        _______, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR,  KC_GRV,  KC_TILD, KC_BSPC,
+        _______, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,     KC_9,    KC_0,    _______,
+        _______, KC_LBRC, KC_LCBR, KC_LPRN, KC_BSLS, KC_PIPE, _______, KC_RPRN,  KC_RCBR, KC_RBRC, _______, _______,
         _______,                   _______, _______, _______, _______, _______
     ),
     [L_DOWN] = KEYMAP(
-        _______, _______, KC_RBRC, KC_RCBR, KC_RPRN, _______, _______, _______, _______, _______, _______, _______,
-        _______, _______, KC_LBRC, KC_LCBR, KC_LPRN, HMDIR,   _______, _______, _______, _______, _______, _______,
+        _______, _______, KC_RBRC, KC_RCBR, KC_RPRN, KC_EQL,  _______, _______, _______, _______, _______, _______,
+        _______, HMDIR,   KC_LBRC, KC_LCBR, KC_LPRN, KC_PLUS, _______, _______, _______, _______, _______, _______,
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______,                   _______, _______, _______, _______, _______
     ),
