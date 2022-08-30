@@ -4,9 +4,10 @@
 #define L_BASE_GAME 1
 #define L_BASE_QWERTY 2
 #define L_UP 3
-#define L_FN 4
-#define L_MOUSE 5
-#define L_BLS 6
+#define L_DOWN 4
+#define L_FN 5
+#define L_MOUSE 6
+#define L_BLS 7
 
 enum custom_keycodes{
     PLACEHOLDER = SAFE_RANGE,
@@ -59,29 +60,44 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
+#define K_TAB LT(L_MOUSE, KC_TAB)
+#define K_CAP MT(MOD_LGUI, KC_0)
+#define K_SHF MT(MOD_LCTL, KC_ESC)
+#define K_LFN LT(L_FN, KC_ENT)
+#define K_RFN LT(L_UP, KC_MINS)
+#define HN_U LT(L_UP, KC_N)
+#define HA_U LT(L_UP, KC_A)
+#define HE_D LT(L_DOWN, KC_E)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [L_BASE_STD] = KEYMAP(
-        LT(L_MOUSE, KC_TAB),  KC_Q, KC_G, KC_M, KC_L, KC_W, KC_Y,   KC_F, KC_U, KC_B,    KC_SCLN, KC_BSPC,
-        MT(MOD_LGUI, KC_0),   KC_D, KC_S, KC_T, KC_N, KC_R, KC_I,   KC_A, KC_E, KC_O,    KC_H,    KC_QUOT,
-        MT(MOD_LCTL, KC_ESC), KC_Z, KC_X, KC_C, KC_V, KC_J, KC_EQL, KC_K, KC_P, KC_COMM, KC_DOT,  KC_SLSH,
-        HMDIR, KC_LSFT, LT(L_FN, KC_ENT), LT(L_UP, KC_MINS), KC_SPC, MO(L_BLS)
+        K_TAB, KC_Q, KC_G, KC_M, KC_L, KC_W, KC_Y,   KC_F, KC_U, KC_B,    KC_SCLN, KC_BSPC,
+        K_CAP, KC_D, KC_S, KC_T, HN_U, KC_R, KC_I,   HA_U, HE_D, KC_O,    KC_H,    KC_QUOT,
+        K_SHF, KC_Z, KC_X, KC_C, KC_V, KC_J, KC_EQL, KC_K, KC_P, KC_COMM, KC_DOT,  KC_SLSH,
+        KC_LALT, KC_LSFT, K_LFN, K_RFN, KC_SPC, MO(L_BLS)
     ),
     [L_BASE_GAME] = KEYMAP(
         KC_TAB,  KC_Q, KC_G, KC_M, KC_L, KC_W, KC_Y,   KC_F, KC_U, KC_B,    KC_SCLN, KC_BSPC,
         KC_LSFT, KC_D, KC_S, KC_T, KC_N, KC_R, KC_I,   KC_A, KC_E, KC_O,    KC_H,    KC_QUOT,
         KC_LCTL, KC_Z, KC_X, KC_C, KC_V, KC_J, KC_EQL, KC_K, KC_P, KC_COMM, KC_DOT,  KC_SLSH,
-        KC_ESC, KC_SPC, KC_LGUI, LT(L_UP, KC_MINS), KC_SPC, MO(L_BLS)
+        KC_ESC, KC_SPC, KC_LGUI, K_RFN, KC_SPC, MO(L_BLS)
     ),
     [L_BASE_QWERTY] = KEYMAP(
-        LT(L_MOUSE, KC_TAB),  KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y,   KC_U, KC_I, KC_O,    KC_P,    KC_BSPC,
-        MT(MOD_LGUI, KC_0),   KC_A, KC_S, KC_D, KC_F, KC_G, KC_H,   KC_J, KC_K, KC_L,    KC_SCLN, KC_QUOT,
-        MT(MOD_LCTL, KC_ESC), KC_Z, KC_X, KC_C, KC_V, KC_B, KC_EQL, KC_N, KC_M, KC_COMM, KC_DOT,  KC_SLSH,
-        C_S_T(KC_0), KC_LSFT, LT(L_FN, KC_ENT), LT(L_UP, KC_MINS), KC_SPC, MO(L_BLS)
+        K_TAB, KC_Q, KC_W, KC_E, KC_R, KC_T, KC_Y,   KC_U, KC_I, KC_O,    KC_P,    KC_BSPC,
+        K_CAP, KC_A, KC_S, KC_D, KC_F, KC_G, KC_H,   KC_J, KC_K, KC_L,    KC_SCLN, KC_QUOT,
+        K_SHF, KC_Z, KC_X, KC_C, KC_V, KC_B, KC_EQL, KC_N, KC_M, KC_COMM, KC_DOT,  KC_SLSH,
+        KC_LALT, KC_LSFT, K_LFN, K_RFN, KC_SPC, MO(L_BLS)
     ),
     [L_UP] = KEYMAP(
-        KC_LCBR, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_GRV,  KC_TILD, KC_RCBR,
-        KC_LPRN, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_RPRN,
-        KC_LBRC, _______, _______, _______, KC_BSLS, KC_PIPE, _______, KC_0,    _______, _______, _______, KC_RBRC,
+        KC_LCBR, KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR,  KC_GRV,  KC_TILD, KC_RCBR,
+        KC_LPRN, KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,     KC_9,    KC_0,    KC_RPRN,
+        KC_LBRC, KC_LBRC, KC_LCBR, KC_LPRN, KC_BSLS, KC_PIPE, _______, KC_RPRN,  KC_RCBR, KC_RBRC, _______, KC_RBRC,
+        _______,                   _______, _______, _______, _______, _______
+    ),
+    [L_DOWN] = KEYMAP(
+        _______, _______, KC_RBRC, KC_RCBR, KC_RPRN, _______, _______, _______, _______, _______, _______, _______,
+        _______, _______, KC_LBRC, KC_LCBR, KC_LPRN, HMDIR,   _______, _______, _______, _______, _______, _______,
+        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
         _______,                   _______, _______, _______, _______, _______
     ),
     [L_FN] = KEYMAP(

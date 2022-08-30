@@ -29,6 +29,7 @@
 #define ACTION_TAPPING
 // uses: https://github.com/qmk/qmk_firmware/pull/9404
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+#define IGNORE_MOD_TAP_INTERRUPT
 
 // key settings
 
