@@ -4,7 +4,7 @@
 
 *A short description of the keyboard/project*
 
-* Keyboard Maintainer: [Cody Bloemhard](https://github.com/codybloemhard)
+* Keyboard Maintainer: [Cody Bloemhard](https://gitlab.com/codybloemhard)
 * Hardware Supported: *The PCBs, controllers supported*
 * Hardware Availability: *Links to where you can find this hardware*
 
