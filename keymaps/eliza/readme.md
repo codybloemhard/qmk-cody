@@ -1,10 +1,8 @@
 # handwired/eliza
 
-![handwired/eliza](imgur.com image replace me!)
-
 *A short description of the keyboard/project*
 
-* Keyboard Maintainer: [Cody Bloemhard](https://gitlab.com/codybloemhard)
+* Keyboard Maintainer: Cody Bloemhard
 * Hardware Supported: *The PCBs, controllers supported*
 * Hardware Availability: *Links to where you can find this hardware*
 
