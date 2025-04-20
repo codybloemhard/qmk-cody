@@ -7,6 +7,7 @@ Just a little repo for my keymaps.
 This is a directory with my keymaps.
 
 ## Compile and flash keymaps
+
 To compile or flash a keymap, make sure you are in the `qmk_firmware` directory.
 The command is as follows: `make keyboard:keymap:flash`.
 In the current directory there is a directory names `keyboards` with many directories with designers.
@@ -22,6 +23,7 @@ Flash the board with the right flash parameter, this changes per board, for pola
 If QMK is installed on root use `sudo` with the make command.
 
 ## Install QMK on Artix Linux
+
 You can install it with the unofficial qmk arch package:
 ```
 sudo pacman -S qmk

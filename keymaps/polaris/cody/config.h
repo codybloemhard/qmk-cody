@@ -22,8 +22,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define VENDOR_ID       0xA103
 #define PRODUCT_ID      0x0002
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    ai03 Design Studio
-#define PRODUCT         Codys Polaris
+#define MANUFACTURER    "ai03 Design Studio"
+#define PRODUCT         "Codys Polaris"
 
 #define MOUSEKEY_DELAY 0
 #define MK_3_SPEED
@@ -36,13 +36,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MK_C_OFFSET_2 16
 #define MK_C_INTERVAL_2 16
 
-#define TAPPING_TERM 200
+#define TAPPING_TERM 150 // 200
 // Uses: https://github.com/qmk/qmk_firmware/pull/9404
 // So not compatibel with master (yet)
 // Build from a modified branch
 #define HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 
-#define UNICODE_SELECTED_MODES UC_LNX
+// #define UNICODE_SELECTED_MODES UC_LNX
 
 /* key matrix size */
 #define MATRIX_ROWS 5
